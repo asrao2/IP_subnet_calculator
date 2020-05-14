@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<title>IP subnet calculator</title>
+</head>
+<body>
+<form method="POST">
+	<h1>IP Calculator</h1><br>
+	<h2>Enter details below:</h2>
+	<label for="ipaddr">IP:</label>
+	<input type="text" name="ipaddr" id="ipaddr"/>
+	<label for="mask">Mask(CIDR):</label>
+	<input type="text" name="mask" id="mask"/>
+	<label for="mask_to">Subnet to mask(CIDR):</label>
+	<input type="text" name="mask_to" id="mask_to"/>
+	<input type="submit">
+</form>
+{% if result %}
+<p><b>Network Address</b>: {{result.nw_addr}}</p>
+<p><b>Broadcast Address</b>: {{result.bc_addr}}</p>
+<p><b>Host Address Range</b>: {{result.host_addr_range}}</p>
+<p><b>Usable IPs</b>: {{result.usable_ips}}</p>
+<p><u><b>Following are the networks after subnetting /{{mask}} to /{{mask_to}}:</b></u></p>
+{% for elem in subnet_to %}
+<p><b>{{elem}}</b>: {{subnet_to[elem]}}</p>
+{% endfor %}
+{% endif %}
+{% if incorrect %}
+<p>Invalid Input!! Try Again!!</p></br>
+{% endif %}
+</body>
+</html>
