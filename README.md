@@ -1,5 +1,5 @@
 # IPv4 Subnet Calculator
 
-A simple Flask based application that takes an IP network, network mask and mask to be subnetted to.
+A simple Flask based application that takes in an IP network, network mask and mask to be subnetted to as inputs.
 
-Lists lot the parent network and the subnetwork details.
+Lists out the parent network and the subnetwork details.
